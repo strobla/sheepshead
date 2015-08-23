@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="./backend.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="styles.css">
+    <title>Schafkopfen v0.1</title>
+</head>
+<body>
+<!--<script>Init_app();</script>-->
+<fieldset class="initbox">
+    <legend>Initialisierung</legend>
+    <fieldset class="checkboxes">
+        <legend>Spielernamen</legend>
+        <label for="player1">
+            <input id="player1" type="text" value="Spieler 1">
+        </label>
+        <label for="player2">
+            <input id="player2" type="text" value="Spieler 2">
+        </label>
+        <label for="player3">
+            <input id="player3" type="text" value="Spieler 3">
+        </label>
+        <label for="player4">
+            <input id="player4" type="text" value="Spieler 4">
+        </label>
+    </fieldset>
+    <fieldset class="checkboxes">
+        <legend>Anfänglicher Spielstand:</legend>
+        <label for="init1">
+            <input id="init1" type="text" value="0">
+        </label>
+        <label for="init2">
+            <input id="init2" type="text" value="0">
+        </label>
+        <label for="init3">
+            <input id="init3" type="text" value="0">
+        </label>
+        <label for="init4">
+            <input id="init4" type="text" value="0">
+        </label>
+    </fieldset>
+    <button type="button" id="start" onclick="Start_game();">Los geht's!</button>
+</fieldset>
+<fieldset class="playbox">
+    <legend>Wertung</legend>
+    <fieldset class="checkboxes">
+        <legend>Spiel:</legend>
+        <label for="play">
+            <select id="play" name="play" size="1" onchange="Update_view()">
+                <option value="sauspiel" selected="selected">Sauspiel</option>
+                <option value="bettel">Bettel</option>
+                <option value="wenz">Wenz</option>
+                <option value="solo">Solo</option>
+                <option value="ramsch">Ramsch</option>
+            </select>
+        </label>
+        <label id="schneiderLabel" for="schneider">
+            <input type="checkbox" id="schneider">
+            Schneider
+        </label>
+        <label id="schwarzLabel" for="schwarz">
+            <input type="checkbox" id="schwarz">
+            Schwarz
+        </label>
+    </fieldset>
+    <fieldset class="checkboxes">
+        <legend>Gewinner</legend>
+        <label for="winner1">
+            <input id="winner1" type="checkbox" name="winner">
+            <span id="winner1Label">Spieler 1</span>
+        </label>
+        <label for="winner2">
+            <input id="winner2" type="checkbox" name="winner">
+            <span id="winner2Label">Spieler 2</span>
+        </label>
+        <label for="winner3">
+            <input id="winner3" type="checkbox" name="winner">
+            <span id="winner3Label">Spieler 3</span>
+        </label>
+        <label for="winner4">
+            <input id="winner4" type="checkbox" name="winner">
+            <span id="winner4Label">Spieler 4</span>
+        </label>
+    </fieldset>
+    <fieldset class="checkboxes">
+        <legend>Laufende</legend>
+        <label for="laufende">
+            <select id="laufende" name = "laufende" size="1">
+                <option selected="selected">0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+            </select>
+        </label>
+    </fieldset>
+    <fieldset class="checkboxes">
+        <legend>Spritzen</legend>
+        <label for="spritzen">
+            <input id="spritzen" type="number" value="0" min="0"/>
+        </label>
+    </fieldset>
+    <fieldset id="jungfrau" class="checkboxes" disabled="disabled">
+        <legend>Jungfrau(en):</legend>
+        <label for="jungfrau1">
+            <input id="jungfrau1" type="checkbox" name="jungfrau">
+            <span id="jungfrau1Label">Spieler 1</span>
+        </label>
+        <label for="jungfrau2">
+            <input id="jungfrau2" type="checkbox" name="jungfrau">
+            <span id="jungfrau2Label">Spieler 2</span>
+        </label>
+        <label for="jungfrau3">
+            <input id="jungfrau3" type="checkbox" name="jungfrau">
+            <span id="jungfrau3Label">Spieler 3</span>
+        </label>
+        <label for="jungfrau4">
+            <input id="jungfrau4" type="checkbox" name="jungfrau">
+            <span id="jungfrau4Label">Spieler 4</span>
+        </label>
+    </fieldset>
+    <button type="button" id="fertig" onclick="evalPlay();">Fertig!</button>
+    <button type="button" id="undo" onclick="undoPlay();">Rückgängig</button>
+</fieldset>
+<table id="scoreboard"></table>
+</body>
+</html>
